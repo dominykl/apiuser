@@ -25,7 +25,7 @@ public class UsersController {
     public List<Users>listarUsuarios(){
        return usersService.listAll(); 
     }
-    @CrossOrigin
+
     @GetMapping("/users/{id}")
     public ResponseEntity<Users> getUser(@PathVariable("id") Long id) {
         try {

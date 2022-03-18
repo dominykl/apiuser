@@ -4,6 +4,12 @@ import com.example.demo.model.UserStockBalance;
 import com.example.demo.model.UserStockBalanceId;
 import com.example.demo.model.Users;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+
 
 public class UserStockBalanceDto  {
     private Long idUser;
@@ -16,44 +22,13 @@ public class UserStockBalanceDto  {
 
     private Long volume;
 
+
     public Long getIdUser() {
         return idUser;
     }
 
     public void setIdUser(Long idUser) {
         this.idUser = idUser;
-    }
-
-    public Long getIdStock() {
-        return idStock;
-    }
-
-    public void setIdStock(Long idStock) {
-        this.idStock = idStock;
-    }
-
-    public String getStockSymbol() {
-        return stockSymbol;
-    }
-
-    public void setStockSymbol(String stockSymbol) {
-        this.stockSymbol = stockSymbol;
-    }
-
-    public String getStockName() {
-        return stockName;
-    }
-
-    public void setStockName(String stockName) {
-        this.stockName = stockName;
-    }
-
-    public Long getVolume() {
-        return volume;
-    }
-
-    public void setVolume(Long volume) {
-        this.volume = volume;
     }
 
     public UserStockBalanceDto(Long idUser, Long idStock, String stockSymbol, String stockName, Long volume) {
