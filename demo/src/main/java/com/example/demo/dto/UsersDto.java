@@ -7,18 +7,16 @@ public class UsersDto {
 
     private String password;
 
-    private Double dollar_balance;
+    private Double dollarBalance;
 
     private Boolean enabled = true;
-
-    public UsersDto(){}
 
 
     public Users transformaParaObjeto(){
         return new Users(
                 username,
                 password,
-                dollar_balance,
+                dollarBalance,
                 enabled
         );
     }

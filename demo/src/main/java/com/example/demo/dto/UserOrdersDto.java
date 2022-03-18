@@ -24,8 +24,6 @@ public class UserOrdersDto {
     private Long remainingVolume;
 
 
-    public UserOrdersDto(){}
-
     public Long getIdUser() {
         return idUser;
     }

@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin("http://localhost:8083/")
 @RestController
 @RequiredArgsConstructor
-public class UsersStockBalance {
+public class UsersStockBalanceController {
     @Autowired
     UsersStockBalanceService usersStockBalanceService;
     @Autowired
     UserServices userServices;
 
-    @CrossOrigin
     @PostMapping("/newUserStock")
     public ResponseEntity<UserStockBalance> salvar(@RequestBody UserStockBalanceDto dto) {
         Users users = userServices.findById(dto.getIdUser());
