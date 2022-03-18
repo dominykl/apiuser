@@ -10,14 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
-@Setter
-@Getter
+
+
 @AllArgsConstructor
 @Entity
 @Table(name="user_orders")
@@ -34,11 +31,11 @@ public class UserOrders implements Serializable{
     @JoinColumn(name="id_user")
     private Users users;
 
-    private Long id_stock;
+    private Long idStock;
 
-    private String stock_symbol;
+    private String stockSymbol;
 
-    private String stock_name;
+    private String stockName;
 
     private Long volume;
 
@@ -48,28 +45,129 @@ public class UserOrders implements Serializable{
 
     private Double price;
 
-    private Timestamp created_on;
+    private Timestamp createdOn;
 
-    private Timestamp updated_on;
+    private Timestamp updatedOn;
 
-    private Long remaining_volume;
-    public UserOrders(Users users, Long id_stock, String stock_symbol, String stock_name, Long volume, Integer type, Integer status, Double price, Long remaining_volume) {
+    private Long remainingVolume;
+    
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
         this.users = users;
-        this.id_stock = id_stock;
-        this.stock_symbol = stock_symbol;
-        this.stock_name = stock_name;
+    }
+
+    public Long getIdStock() {
+        return idStock;
+    }
+
+    public void setIdStock(Long idStock) {
+        this.idStock = idStock;
+    }
+
+    public String getStockSymbol() {
+        return stockSymbol;
+    }
+
+    public void setStockSymbol(String stockSymbol) {
+        this.stockSymbol = stockSymbol;
+    }
+
+    public String getStockName() {
+        return stockName;
+    }
+
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
+    }
+
+    public Long getVolume() {
+        return volume;
+    }
+
+    public void setVolume(Long volume) {
+        this.volume = volume;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Timestamp getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(Timestamp createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public Timestamp getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(Timestamp updatedOn) {
+        this.updatedOn = updatedOn;
+    }
+
+    public Long getRemainingVolume() {
+        return remainingVolume;
+    }
+
+    public void setRemainingVolume(Long remainingVolume) {
+        this.remainingVolume = remainingVolume;
+    }
+
+    public UserOrders(Users users, Long idStock, String stockSymbol, String stockName, Long volume, Integer type, Integer status, Double price, Long remainingVolume) {
+        this.users = users;
+        this.idStock = idStock;
+        this.stockSymbol = stockSymbol;
+        this.stockName = stockName;
         this.volume = volume;
         this.price = price;
         this.type = type;
         this.status = status;
-        this.created_on = Timestamp.valueOf(LocalDateTime.now());
-        this.updated_on = Timestamp.valueOf(LocalDateTime.now());
-        this.remaining_volume = remaining_volume;
+        this.createdOn = Timestamp.valueOf(LocalDateTime.now());
+        this.updatedOn = Timestamp.valueOf(LocalDateTime.now());
+        this.remainingVolume = remainingVolume;
     }
 
     public UserOrders(){
-        this.created_on = Timestamp.valueOf(LocalDateTime.now());
-        this.updated_on = Timestamp.valueOf(LocalDateTime.now());
+        this.createdOn = Timestamp.valueOf(LocalDateTime.now());
+        this.updatedOn = Timestamp.valueOf(LocalDateTime.now());
     }
 
 

@@ -20,10 +20,14 @@ import lombok.RequiredArgsConstructor;
 public class UsersStockBalance {
     private final UsersStockBalanceService usersStockBalanceService;
     private final UserServices userServices;
+    public UsersStockBalance(UsersStockBalanceService usersStockBalanceService, UserServices userServices) {
+        this.usersStockBalanceService = usersStockBalanceService;
+        this.userServices = userServices;
+    }
     @CrossOrigin
     @PostMapping("/newUserStock")
     public ResponseEntity<UserStockBalance> salvar(@RequestBody UserStockBalanceDto dto) {
-        Users users = userServices.findById(dto.getId_user());
+        Users users = userServices.findById(dto.getIdUser());
         UserStockBalance userStockBalance = usersStockBalanceService.salvar(dto.transformaParaObjeto(users));
         return new ResponseEntity<>(userStockBalance, HttpStatus.CREATED);
    }

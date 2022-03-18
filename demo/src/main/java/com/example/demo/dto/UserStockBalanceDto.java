@@ -4,26 +4,63 @@ import com.example.demo.model.UserStockBalance;
 import com.example.demo.model.UserStockBalanceId;
 import com.example.demo.model.Users;
 
-import lombok.Getter;
-import lombok.Setter;
-@Getter
-@Setter
+
 public class UserStockBalanceDto  {
-    private Long id_user;
+    private Long idUser;
 
-    private Long id_stock;
+    private Long idStock;
 
-    private String stock_symbol;
+    private String stockSymbol;
 
-    private String stock_name;
+    private String stockName;
 
     private Long volume;
 
-    public UserStockBalanceDto(Long id_user, Long id_stock, String stock_symbol, String stock_name, Long volume) {
-        this.id_user = id_user;
-        this.id_stock = id_stock;
-        this.stock_symbol = stock_symbol;
-        this.stock_name = stock_name;
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
+
+    public Long getIdStock() {
+        return idStock;
+    }
+
+    public void setIdStock(Long idStock) {
+        this.idStock = idStock;
+    }
+
+    public String getStockSymbol() {
+        return stockSymbol;
+    }
+
+    public void setStockSymbol(String stockSymbol) {
+        this.stockSymbol = stockSymbol;
+    }
+
+    public String getStockName() {
+        return stockName;
+    }
+
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
+    }
+
+    public Long getVolume() {
+        return volume;
+    }
+
+    public void setVolume(Long volume) {
+        this.volume = volume;
+    }
+
+    public UserStockBalanceDto(Long idUser, Long idStock, String stockSymbol, String stockName, Long volume) {
+        this.idUser = idUser;
+        this.idStock = idStock;
+        this.stockSymbol = stockSymbol;
+        this.stockName = stockName;
         this.volume = volume;
     }
 
@@ -31,9 +68,9 @@ public class UserStockBalanceDto  {
     }
 
     public UserStockBalance transformaParaObjeto(Users users){
-        return new UserStockBalance( new UserStockBalanceId(users, id_stock),
-                stock_symbol,
-                stock_name,
+        return new UserStockBalance( new UserStockBalanceId(users, idStock),
+                stockSymbol,
+                stockName,
                 volume);
     }
 }

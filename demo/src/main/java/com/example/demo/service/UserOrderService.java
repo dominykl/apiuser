@@ -6,18 +6,21 @@ import com.example.demo.model.Users;
 import com.example.demo.repository.UserOrdersRepository;
 import com.example.demo.repository.UsersRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+
+
 @Service 
 public class UserOrderService {
-    private final UserOrdersRepository userordersrepository;
-    private final UsersRepository usersRepository;
+    @Autowired
+    UserOrdersRepository userordersrepository;
+    @Autowired
+     UsersRepository usersRepository;
     public UserOrdersDto salvar(UserOrdersDto userordersdto, String token){
-        Users users = usersRepository.findById(userordersdto.getId_user()).orElseThrow();
+        Users users = usersRepository.findById(userordersdto.getIdUser()).orElseThrow();
         userordersrepository.save(userordersdto.transformaParaObjeto(users));
         return userordersdto;
 
