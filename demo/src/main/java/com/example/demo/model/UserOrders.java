@@ -3,6 +3,7 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,24 +32,34 @@ public class UserOrders implements Serializable{
     @JoinColumn(name="id_user")
     private Users users;
 
+    @Column(name="id_stock")
     private Long idStock;
 
+    @Column(name="stock_symbol")
     private String stockSymbol;
 
+    @Column(name="stock_name")
     private String stockName;
 
+    @Column(name="volume")
     private Long volume;
 
+    @Column(name="type")
     private Integer type;
 
+@Column(name="status")
     private Integer status;
 
+    @Column(name="price")
     private Double price;
 
+    @Column(name="created_on")
     private Timestamp createdOn;
 
+    @Column(name="updated_on")
     private Timestamp updatedOn;
 
+    @Column(name="remaining_volume")
     private Long remainingVolume;
     
     public static long getSerialversionuid() {
@@ -148,20 +159,6 @@ public class UserOrders implements Serializable{
     }
 
     public void setRemainingVolume(Long remainingVolume) {
-        this.remainingVolume = remainingVolume;
-    }
-
-    public UserOrders(Users users, Long idStock, String stockSymbol, String stockName, Long volume, Integer type, Integer status, Double price, Long remainingVolume) {
-        this.users = users;
-        this.idStock = idStock;
-        this.stockSymbol = stockSymbol;
-        this.stockName = stockName;
-        this.volume = volume;
-        this.price = price;
-        this.type = type;
-        this.status = status;
-        this.createdOn = Timestamp.valueOf(LocalDateTime.now());
-        this.updatedOn = Timestamp.valueOf(LocalDateTime.now());
         this.remainingVolume = remainingVolume;
     }
 

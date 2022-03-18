@@ -6,6 +6,7 @@ import com.example.demo.model.Users;
 import com.example.demo.service.UserServices;
 import com.example.demo.service.UsersStockBalanceService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,12 +19,11 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 public class UsersStockBalance {
-    private final UsersStockBalanceService usersStockBalanceService;
-    private final UserServices userServices;
-    public UsersStockBalance(UsersStockBalanceService usersStockBalanceService, UserServices userServices) {
-        this.usersStockBalanceService = usersStockBalanceService;
-        this.userServices = userServices;
-    }
+    @Autowired
+    UsersStockBalanceService usersStockBalanceService;
+    @Autowired
+    UserServices userServices;
+
     @CrossOrigin
     @PostMapping("/newUserStock")
     public ResponseEntity<UserStockBalance> salvar(@RequestBody UserStockBalanceDto dto) {

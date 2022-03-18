@@ -7,7 +7,6 @@ import com.example.demo.service.UserOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,9 +16,9 @@ import java.util.List;
 public class UserOrderController {
     @Autowired
     UserOrderService userorderservice;
-    public ResponseEntity<UserOrdersDto> salvarOrder (@RequestBody UserOrdersDto userorderdto, @RequestHeader("Authorization") String token){
+    public ResponseEntity<UserOrdersDto> salvarOrder (@RequestBody UserOrdersDto userorderdto){
         try{
-            return ResponseEntity.ok().body(userorderservice.salvar(userorderdto,token));
+            return ResponseEntity.ok().body(userorderservice.salvar(userorderdto));
         } catch(Exception e){
             return ResponseEntity.badRequest().build();
         }

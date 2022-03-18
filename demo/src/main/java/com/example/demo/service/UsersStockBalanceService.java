@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
 public class UsersStockBalanceService {
    @Autowired
     UserStockBalanceRepository userStockBalanceRepository;
-    public Optional<UserStockBalance> findById(Users users, Long id_stock){
-        return userStockBalanceRepository.findById(new UserStockBalanceId(users, id_stock));
+    public Optional<UserStockBalance> findById(Users users, Long idStock){
+        return userStockBalanceRepository.findById(new UserStockBalanceId(users, idStock));
     }
     public UserStockBalance salvar(UserStockBalance userStockBalance) {
         return userStockBalanceRepository.save(userStockBalance);

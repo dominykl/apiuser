@@ -19,7 +19,7 @@ public class UserOrderService {
     UserOrdersRepository userordersrepository;
     @Autowired
      UsersRepository usersRepository;
-    public UserOrdersDto salvar(UserOrdersDto userordersdto, String token){
+    public UserOrdersDto salvar(UserOrdersDto userordersdto){
         Users users = usersRepository.findById(userordersdto.getIdUser()).orElseThrow();
         userordersrepository.save(userordersdto.transformaParaObjeto(users));
         return userordersdto;
